@@ -20,11 +20,11 @@ body {
 }
 
 .container {
-    margin: 1rem;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    max-width: calc(100% - 10px);
 }
 
 .container>div {
@@ -67,6 +67,7 @@ button {
 }
 
 .result>p {
+    max-width: 100%;
     font-family: monospace;
     margin: 8px;
     letter-spacing: 2px;
