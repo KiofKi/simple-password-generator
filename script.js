@@ -18,7 +18,7 @@ function createPasswordSimple() {
         var char = random(seed.length);
         pw += seed[char];
     };
-    result.innerHTML += "<p>" + pw + "</p>";
+    result.innerHTML += `<p>${pw}</p>`;
 };
 
 function createPasswordComplex() {
@@ -28,7 +28,7 @@ function createPasswordComplex() {
         var char = random(seed.length);
         pw += seed[char];
     };
-    result.innerHTML += "<p>" + pw + "</p>";
+    result.innerHTML += `<p>${pw}</p>`;
 };
 
 function createPasswordExtreme() {
@@ -38,7 +38,7 @@ function createPasswordExtreme() {
         var char = random(seed.length);
         pw += seed[char];
     };
-    result.innerHTML += "<p>" + pw + "</p>";
+    result.innerHTML += `<p>${pw}</p>`;
 };
 
 function reset() {
