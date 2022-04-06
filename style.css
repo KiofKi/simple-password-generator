@@ -61,7 +61,7 @@ button {
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 }
 
-#reset {
+#btn-reset {
     display: flex;
     justify-content: center;
     align-items: center;

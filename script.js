@@ -1,7 +1,11 @@
-const vowels = "aeiouy";
-const consonants = "bcdfghjklmnpqrstvwxz"
+const vowels = "aeiou";
+const consonants = "bcdfghjklmnpqrstvwxyz"
 const numbers = "0123456789";
 const specialChars = "!$%()=?+#-.:~*@[]_";
+const simpleBtn = document.getElementById("btn-simple");
+const complexBtn = document.getElementById("btn-complex");
+const extremeBtn = document.getElementById("btn-extreme");
+const resetBtn = document.getElementById("btn-reset");
 var result = document.getElementById("password");
 
 
@@ -53,6 +57,11 @@ function reset() {
     result.innerHTML = "";
 };
 
-function output(pw) {
-    result.innerHTML += `<p>${pw}</p>`;
+function output(password) {
+    result.innerHTML += `<p>${password}</p>`;
 }
+
+simpleBtn.addEventListener('click', createPasswordSimple);
+complexBtn.addEventListener('click', createPasswordComplex);
+extremeBtn.addEventListener('click', createPasswordExtreme);
+resetBtn.addEventListener('click', reset);
