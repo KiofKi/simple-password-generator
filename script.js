@@ -1,5 +1,5 @@
-const vowels = "aeiou";
-const consonants = "bcdfghjklmnpqrstvwxyz"
+const vowels = "aeiouAEIOU";
+const consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
 const numbers = "0123456789";
 const specialChars = "!$%()=?+#-.:~*@[]_";
 const simpleBtn = document.getElementById("btn-simple");
@@ -8,7 +8,6 @@ const extremeBtn = document.getElementById("btn-extreme");
 const resetBtn = document.getElementById("btn-reset");
 var result = document.getElementById("password");
 
-
 function random(x) {
     r = Math.floor(Math.random() * (x));
     return r;
@@ -16,11 +15,9 @@ function random(x) {
 
 function createPasswordSimple() {
     var pw = "";
-    seed1 = vowels + vowels.toUpperCase();
-    seed2 = consonants + consonants.toUpperCase();
     for (i=0;i<4;i++) {
-        pw += seed1[random(seed1.length)];
-        pw += seed2[random(seed2.length)];
+        pw += vowels[random(vowels.length)];
+        pw += consonants[random(consonants.length)];
     };
     for (i=0;i<2;i++) {
         pw+= numbers[random(numbers.length)];
@@ -30,7 +27,7 @@ function createPasswordSimple() {
 
 function createPasswordComplex() {
     var pw = "";
-    var seed = vowels + vowels.toUpperCase() + consonants + consonants.toUpperCase() + numbers;
+    var seed = vowels + consonants + numbers;
     for (i=0;i<8;i++) {
         pw += seed[random(seed.length)];
     };
@@ -43,8 +40,8 @@ function createPasswordComplex() {
 
 function createPasswordExtreme() {
     var pw = "";
-    seed1 = vowels + vowels.toUpperCase() + consonants + consonants.toUpperCase();
-    seed2 = vowels + vowels.toUpperCase() + consonants + consonants.toUpperCase() + numbers + specialChars;
+    seed1 = vowels + consonants;
+    seed2 = vowels + consonants + numbers + specialChars;
     pw += seed1[random(seed1.length)];
     for (i=0;i<30;i++) {
         pw += seed2[random(seed2.length)];
@@ -59,6 +56,12 @@ function reset() {
 
 function output(password) {
     result.innerHTML += `<p>${password}</p>`;
+    setResultDivMaxHeight();
+}
+
+function setResultDivMaxHeight() {
+    var substractHeight = document.querySelector(".buttons").offsetHeight + document.querySelector("h1").offsetHeight + document.querySelector("h2").offsetHeight;
+    result.style.maxHeight = `calc(80vh - ${substractHeight}px)`;
 }
 
 simpleBtn.addEventListener('click', createPasswordSimple);
